@@ -1,0 +1,27 @@
+language: node_js
+
+node_js:
+  - stable
+  - v0.10
+  - v0.12
+  - v4
+  - v5
+
+sudo: false
+
+cache:
+  directories:
+    - node_modules
+
+env:
+  global:
+    - secure: k316UiUL6iqR6RKkdmwmyWoBQRoaKq7+AjJTxhqoveZaSFXGQLlRYdpFWVZF4AG1oYFDvOCilnAQhNzLmnaBwGoRp/TvqE8aaV2bC1X8gWnW5xcGorMvf3TrAChY2rAvqIRjCEPYYV5RKO06gps6w6QqDeUG3XBst5im722ZzZyuIuCnRZSUx5xETW/IJpwkaJ9g6M8y2Swxil0hZOATgXFQE4AuMgWoBenypfOWJWtyfvsqyV7BsE0I57eRD9OC8nxNu5Qzb2RlM89T5bPrcJ7/JxcC7XZ3KeHbRGimXESGmeDY1FlmMbwesUIFW/A5yQCnCu4UcbfE9qoWQb3yb47UBQAg9HNAaAGtz1Lv9/l4oF2hVF/u3r3N/5vPQ4g+Yq4LwhWx/ycvZLCSYOGHam4kxX0wpu6f0fSDzQ+uaKO2OVfOjkPYDvaHmS/ucRBXFhX84062JOQHiUYVe9wzr+bTaN4Urm7rew/SeN8xac2Gzdop4cqdaKF2j6wMZCG+uSHXkPGbzmL/A9NgnMFz1xlKSpwyZDT2kDY016bcEEmbEJpGF5Yv5Q1QvwRnE6KFFMPUq1L9lGCZoI3CrpjRLVsFvl/JSFNL9dZvL9cf2m/aM9rpAVus6XFiHtFP4wd2goSzSmBim5uO9AOWy34zyLfgD6XAiVRgXrVewiq9C0Q=
+
+script:
+  - npm test
+  - npm run sa
+
+after_script:
+  - istanbul cover --report lcovonly test.js
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - cat ./coverage/lcov.info | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js
