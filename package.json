@@ -24,6 +24,9 @@
     "remote-file",
     "file"
   ],
+  "engines": {
+    "node": ">=0.10"
+  },
   "dependencies": {
     "bluebird": "^3.3.1",
     "download": "^4.4.3",
