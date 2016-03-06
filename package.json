@@ -4,6 +4,7 @@
   "description": "Download a remote file to a temporary location",
   "main": "index.js",
   "scripts": {
+    "cover": "istanbul cover --report lcovonly -x test.js test.js",
     "test": "tape test.js | tap-spec",
     "sa": "jscs index.js && jshint index.js"
   },

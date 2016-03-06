@@ -18,10 +18,10 @@ env:
     - secure: peklgN2RQ8JPxG5Lk6iI4zOZNk/65mouwpZA4Wt1SfdzP0ZJDm4h/nRtA31XGHU27qiUWgAG+xOULs+tG56bt8tJZJDcqs46lut2wdBrRsc2TurmsLJIF6BphNMhA1lLrjdBXxZzjvzAXIzUc4jdTp+9bTD7R7a0jaK8UsBsjyON1fPe1pGsCl6Y8FGCqqefTieJyAes4z7pudOAS/JVzqxlH58Uz+HtoywSEv0lp9pHvi+OlTEXnzoAQFALj17lltuwTgfMdbt/3WlxqZuBw15ZwOMcIzlMsGmIjAwCHIOAMjHHPyNGNeg4AG8aoPahS7ePLsjTgWewsZtGPDL+MVppGWvwaoWyoIkPir8B32ppW4tH0mR6y5lXdlHMyYeKZObIf1jo78pa1oqSDCLL6zzYXh5kz3csVXPJEzNhfF6IkhsLBI/ABsg/doxmOsiQeApHmZ49Ym+zFsa2k8jASycHbQEShIozV333TDdjntUi7nqhHSHBoxxOuujHCKzVaqCf46bNYaevl1KkksZNfa3V9kdS0/SsP+5rDj8zPldeDfqSopvSZ1Tx6pZQI55LW768/owTcuNVscBY5Asnu8P0n/XwOYedj/mIcy04WSh5+hBR+rn0x1IiCG9AUASMdqWcPdR8pcVpUxiiDXI46UcqkgHPy6r8VCd8bkYtSHo=
 
 script:
-  - npm test
   - npm run sa
+  - npm test
 
 after_script:
-  - istanbul cover --report lcovonly test.js
+  - npm run cover
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - cat ./coverage/lcov.info | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js
