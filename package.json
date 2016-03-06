@@ -14,6 +14,9 @@
     "url": "git://github.com/mike182uk/tmp-dl.git"
   },
   "homepage": "https://github.com/mike182uk/tmp-dl",
+  "bugs": {
+    "url": "https://github.com/mike182uk/tmp-dl/issues"
+  },
   "keywords": [
     "download",
     "tmp",
