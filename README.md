@@ -6,6 +6,7 @@
 [![Coveralls](https://img.shields.io/coveralls/mike182uk/tmp-dl/master.svg?style=flat-square)](https://coveralls.io/r/mike182uk/tmp-dl)
 [![npm](https://img.shields.io/npm/dm/tmp-dl.svg?style=flat-square)](https://www.npmjs.com/package/tmp-dl)
 [![License](https://img.shields.io/github/license/mike182uk/tmp-dl.svg?style=flat-square)](https://www.npmjs.com/package/tmp-dl)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 
 Download a remote file to a temporary location.
 
@@ -24,7 +25,7 @@ var url = 'http://www.example.com/some-awesome-image.jpg';
 
 temporaryDownload(url)
   .then(function(file) {
-    // remote file downloaded to temporary location  
+    // remote file downloaded to temporary location
   })
   .catch(function(err) {
     // something went wrong
@@ -44,7 +45,7 @@ temporaryDownload(url)
   .then(function(file) {
     var savedFilePath = file.path;
 
-    // do something with saved file path...       
+    // do something with saved file path...
   });
 ```
 
