@@ -41,7 +41,7 @@
     "coveralls": "^2.11.6",
     "cz-conventional-changelog": "^1.1.5",
     "istanbul": "^0.4.2",
-    "jscs": "^2.9.0",
+    "jscs": "^3.0.4",
     "jshint": "^2.9.1",
     "rewire": "^2.5.1",
     "tap-spec": "^4.1.1",
