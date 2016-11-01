@@ -29,7 +29,7 @@
     "file"
   ],
   "engines": {
-    "node": ">=0.10"
+    "node": ">= 4"
   },
   "dependencies": {
     "bluebird": "^3.3.1",
