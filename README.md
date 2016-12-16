@@ -19,17 +19,17 @@ npm install --save tmp-dl
 ## Usage
 
 ```js
-var temporaryDownload = require('tmp-dl');
+var temporaryDownload = require('tmp-dl')
 
-var url = 'http://www.example.com/some-awesome-image.jpg';
+var url = 'http://www.example.com/some-awesome-image.jpg'
 
 temporaryDownload(url)
-  .then(function(file) {
+  .then(function (file) {
     // remote file downloaded to temporary location
   })
-  .catch(function(err) {
+  .catch(function (err) {
     // something went wrong
-  });  
+  }) 
 ```
 
 `tmp-dl` will return a [promise](https://github.com/petkaantonov/bluebird). The promise will resolve once the remote file has been downloaded. Any errors that occur during the download of the file, or the creation of the temporary location will cause the promise to reject.
@@ -37,16 +37,16 @@ temporaryDownload(url)
 The resolved file object will be a [Vinyl](https://github.com/gulpjs/vinyl) file:
 
 ```js
-var temporaryDownload = require('tmp-dl');
+var temporaryDownload = require('tmp-dl')
 
-var url = 'http://www.example.com/some-awesome-image.jpg';
+var url = 'http://www.example.com/some-awesome-image.jpg'
 
 temporaryDownload(url)
-  .then(function(file) {
-    var savedFilePath = file.path;
+  .then(function (file) {
+    var savedFilePath = file.path
 
     // do something with saved file path...
-  });
+  })
 ```
 
 Check out the documentation for [Vinyl](https://github.com/gulpjs/vinyl) to view the methods / properties available for the resolved file object.
