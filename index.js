@@ -1,36 +1,39 @@
-var Download = require('download')
-var Promise = require('bluebird')
-var tmp = require('tmp')
+'use strict'
+
+const download = require('download')
+const path = require('path')
+const tmp = require('tmp')
+const url = require('url')
 
 /**
  * Exports
  */
 
-module.exports = temporaryDownload
+module.exports = tmpdl
 
 /**
  * Download a remote file to a temporary location
  *
- * @param   {string} url
+ * @param   {string} src
  * @returns {Promise}
  */
 
-function temporaryDownload (url) {
-  return new Promise(function (resolve, reject) {
-    tmp.tmpName(function (err, tmpPath) {
+function tmpdl (src) {
+  return new Promise((resolve, reject) => {
+    tmp.tmpName((err, tmpDir) => {
       if (err) {
-        return reject(err)
+        return reject(new Error(err))
       }
 
-      new Download()
-        .get(url)
-        .dest(tmpPath)
-        .run(function (err, files) {
-          if (err) {
-            return reject(err)
-          }
+      download(src, tmpDir)
+        .then(() => {
+          let filename = url.parse(src).path
+          let filepath = path.join(tmpDir, path.parse(filename).base)
 
-          resolve(files.shift())
+          resolve(filepath)
+        })
+        .catch(err => {
+          reject(new Error(err.message))
         })
     })
   })

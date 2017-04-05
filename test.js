@@ -1,90 +1,59 @@
-var rewire = require('rewire')
-var test = require('tape')
+'use strict'
 
-var temporaryDownload = rewire('./index')
+const proxyquire = require('proxyquire')
+const test = require('tape')
 
-test('it downloads a file to a temporary location', function (t) {
-  var url = 'http://foo.bar/baz.jpg'
-  var tmpName = 'foo/bar'
-  var tmpFilePath = tmpName + '/baz.jpg'
+test('it downloads a file to a temporary location and resolves with the path to the file', t => {
+  let url = 'http://foo.bar/baz.jpg'
+  let tmpDir = 'foo/bar'
+  let expectedFilePath = `${tmpDir}/baz.jpg`
 
-  var tmp = {
-    tmpName: function (cb) {
-      cb(null, tmpName)
-    }
-  }
-
-  var download = function () {
-    return {
-      get: function () { return this },
-      dest: function () { return this },
-      run: function (cb) {
-        cb(null, [{ path: tmpFilePath }])
-      }
-    }
-  }
-
-  temporaryDownload.__set__({
-    Download: download,
-    tmp: tmp
+  let tmpdl = proxyquire('./index.js', {
+    tmp: {
+      tmpName: (cb) => cb(null, tmpDir)
+    },
+    download: () => Promise.resolve()
   })
 
-  temporaryDownload(url).then(function (file) {
-    t.equal(file.path, tmpFilePath, 'file is downloaded to the correct location')
+  tmpdl(url).then(filepath => {
+    t.equal(filepath, expectedFilePath, 'file is downloaded to the correct location')
 
     t.end()
   })
 })
 
-test('it rejects the promise if it fails to get a tmp directory', function (t) {
-  var tmpNameErr = 'foo'
-  var url = 'http://foo.bar/baz.jpg'
+test('it rejects the promise if it fails to create a temporary directory', t => {
+  let url = 'http://foo.bar/baz.jpg'
+  let errorMsg = 'foo'
+  let expectedError = new Error(errorMsg)
 
-  var tmp = {
-    tmpName: function (cb) {
-      cb(tmpNameErr)
+  let tmpdl = proxyquire('./index.js', {
+    tmp: {
+      tmpName: cb => cb(errorMsg)
     }
-  }
-
-  temporaryDownload.__set__({
-    tmp: tmp
   })
 
-  temporaryDownload(url).catch(function (err) {
-    t.equal(err, tmpNameErr, 'promise is rejected with correct error message')
+  tmpdl(url).catch(function (err) {
+    t.deepEqual(err, expectedError, 'promise is rejected with correct error')
 
     t.end()
   })
 })
 
-test('it rejects the promise if it fails to download the file', function (t) {
-  var url = 'http://foo.bar/baz.jpg'
-  var tmpName = 'foo/bar'
-  var downloadRunErr = 'foo'
+test('it rejects the promise if it fails to download the file', t => {
+  let url = 'http://foo.bar/baz.jpg'
+  let tmpDir = 'foo/bar'
+  let expectedError = new Error('foo')
 
-  var tmp = {
-    tmpName: function (cb) {
-      cb(null, tmpName)
-    }
-  }
-
-  var download = function () {
-    return {
-      get: function () { return this },
-      dest: function () { return this },
-      run: function (cb) {
-        cb(downloadRunErr)
-      }
-    }
-  }
-
-  temporaryDownload.__set__({
-    Download: download,
-    tmp: tmp
+  let tmpdl = proxyquire('./index.js', {
+    tmp: {
+      tmpName: (cb) => cb(null, tmpDir)
+    },
+    download: () => Promise.reject(expectedError)
   })
 
-  temporaryDownload(url).catch(function (err) {
-    t.equal(err, downloadRunErr, 'promise is rejected with correct error message')
+  tmpdl(url).catch(function (err) {
+    t.deepEqual(err, expectedError, 'promise is rejected with correct error')
 
     t.end()
   })
