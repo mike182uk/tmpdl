@@ -2,6 +2,7 @@
 
 # 2.0.0
 
+- Rename package to `tmpdl`
 - Drop support for Node.js `< 4.0.0`
 - Return path to the downloaded file instead of a vinyl file object
 - Upgrade dependencies
