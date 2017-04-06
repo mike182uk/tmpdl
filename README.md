@@ -1,24 +1,24 @@
-# tmp-dl
+# tmpdl
 
-[![Version](https://img.shields.io/npm/v/tmp-dl.svg?style=flat-square)](https://www.npmjs.com/package/tmp-dl)
-[![Build Status](https://img.shields.io/travis/mike182uk/tmp-dl.svg?style=flat-square)](http://travis-ci.org/mike182uk/tmp-dl)
-[![Code Climate](https://img.shields.io/codeclimate/github/mike182uk/tmp-dl.svg?style=flat-square)](https://codeclimate.com/github/mike182uk/tmp-dl)
-[![Coveralls](https://img.shields.io/coveralls/mike182uk/tmp-dl/master.svg?style=flat-square)](https://coveralls.io/r/mike182uk/tmp-dl)
-[![npm](https://img.shields.io/npm/dm/tmp-dl.svg?style=flat-square)](https://www.npmjs.com/package/tmp-dl)
-[![License](https://img.shields.io/github/license/mike182uk/tmp-dl.svg?style=flat-square)](https://www.npmjs.com/package/tmp-dl)
+[![Version](https://img.shields.io/npm/v/tmpdl.svg?style=flat-square)](https://www.npmjs.com/package/tmpdl)
+[![Build Status](https://img.shields.io/travis/mike182uk/tmpdl.svg?style=flat-square)](http://travis-ci.org/mike182uk/tmpdl)
+[![Code Climate](https://img.shields.io/codeclimate/github/mike182uk/tmpdl.svg?style=flat-square)](https://codeclimate.com/github/mike182uk/tmpdl)
+[![Coveralls](https://img.shields.io/coveralls/mike182uk/tmpdl/master.svg?style=flat-square)](https://coveralls.io/r/mike182uk/tmpdl)
+[![npm](https://img.shields.io/npm/dm/tmpdl.svg?style=flat-square)](https://www.npmjs.com/package/tmpdl)
+[![License](https://img.shields.io/github/license/mike182uk/tmpdl.svg?style=flat-square)](https://www.npmjs.com/package/tmpdl)
 
 Download a remote file to a temporary location.
 
 ## Installation
 
 ```bash
-npm install --save tmp-dl
+npm install --save tmpdl
 ```
 
 ## Usage
 
 ```js
-const tmpdl = require('tmp-dl')
+const tmpdl = require('tmpdl')
 
 tmpdl('http://www.example.com/some-awesome-image.jpg')
   .then(filepath => {
@@ -32,7 +32,7 @@ tmpdl('http://www.example.com/some-awesome-image.jpg')
 `tmpdl` will return a promise. The promise will resolve once the remote file has been downloaded. Any errors that occur during the download of the file, or the creation of the temporary directory that the remote file will be stored in, will cause the promise to reject.
 
 ```js
-const tmpdl = require('tmp-dl')
+const tmpdl = require('tmpdl')
 
 tmpdl('http://www.example.com/some-awesome-image.jpg')
   .then(filepath => {

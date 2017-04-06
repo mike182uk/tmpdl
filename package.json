@@ -1,5 +1,5 @@
 {
-  "name": "tmp-dl",
+  "name": "tmpdl",
   "version": "2.0.0",
   "description": "Download a remote file to a temporary location",
   "main": "index.js",
@@ -12,11 +12,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mike182uk/tmp-dl.git"
+    "url": "git://github.com/mike182uk/tmpdl.git"
   },
-  "homepage": "https://github.com/mike182uk/tmp-dl",
+  "homepage": "https://github.com/mike182uk/tmpdl",
   "bugs": {
-    "url": "https://github.com/mike182uk/tmp-dl/issues"
+    "url": "https://github.com/mike182uk/tmpdl/issues"
   },
   "keywords": [
     "download",

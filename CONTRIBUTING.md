@@ -2,11 +2,11 @@
 
 Contributions are **welcome!**
 
-Contributions can be made via a Pull Request on [Github](https://github.com/mike182uk/tmp-dl).
+Contributions can be made via a Pull Request on [Github](https://github.com/mike182uk/tmpdl).
 
 ## Reporting an Issue
 
-Please report issues via the issue tracker on [Github](https://github.com/mike182uk/tmp-dl). For security-related issues, please email the maintainer directly.
+Please report issues via the issue tracker on [Github](https://github.com/mike182uk/tmpdl). For security-related issues, please email the maintainer directly.
 
 ## Pull Requests
 
