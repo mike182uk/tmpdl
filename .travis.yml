@@ -15,7 +15,7 @@ cache:
 
 env:
   global:
-    - secure: peklgN2RQ8JPxG5Lk6iI4zOZNk/65mouwpZA4Wt1SfdzP0ZJDm4h/nRtA31XGHU27qiUWgAG+xOULs+tG56bt8tJZJDcqs46lut2wdBrRsc2TurmsLJIF6BphNMhA1lLrjdBXxZzjvzAXIzUc4jdTp+9bTD7R7a0jaK8UsBsjyON1fPe1pGsCl6Y8FGCqqefTieJyAes4z7pudOAS/JVzqxlH58Uz+HtoywSEv0lp9pHvi+OlTEXnzoAQFALj17lltuwTgfMdbt/3WlxqZuBw15ZwOMcIzlMsGmIjAwCHIOAMjHHPyNGNeg4AG8aoPahS7ePLsjTgWewsZtGPDL+MVppGWvwaoWyoIkPir8B32ppW4tH0mR6y5lXdlHMyYeKZObIf1jo78pa1oqSDCLL6zzYXh5kz3csVXPJEzNhfF6IkhsLBI/ABsg/doxmOsiQeApHmZ49Ym+zFsa2k8jASycHbQEShIozV333TDdjntUi7nqhHSHBoxxOuujHCKzVaqCf46bNYaevl1KkksZNfa3V9kdS0/SsP+5rDj8zPldeDfqSopvSZ1Tx6pZQI55LW768/owTcuNVscBY5Asnu8P0n/XwOYedj/mIcy04WSh5+hBR+rn0x1IiCG9AUASMdqWcPdR8pcVpUxiiDXI46UcqkgHPy6r8VCd8bkYtSHo=
+    - secure: DPZ1twm86o01f2xta0b8Z/Fu/KEH2bzxZBsLAtSymQIS7D5Dvu3EYe3zC0+71cewiKrVPGlC3p7k46AQIwBDLR/lNBIrarsDO5YUvRRp3SOlGX8JmOEKIzP5kQQ1bUcEhKcZXAJHrWhaa0CxzqbZRrFiRUUMlZSxcnMNa6mZ9kWPHAzNg8Imj24y+/oOfnDoIp3u5m8y+X85knvrTaD2o9lEs0t1PWjFsM9sHzxc3+o8zwyWvC3yPbloviXciYIhn2Q3XD+28kaltqEDHWl/cbikhqXcj2bZ7OGlVdGMq+4GF0Zcnw8YojoltypJ3dw2XM8QUeEbw+2S4UQyFg2stn3lfXde1dlKSaP9JzxA4oMHgWNZSGGotxl107pdQMDlYeIspkc03DQs3Nqd/l3//hSn5Po7r/qim0fTh+htoGZP8jkYH6byAbVvNIv3MxtFZMSb4jk+swKIQrLrTu33ssu3YoVtcKCS0kpTj3avaTa2LQOYH196CSqiWHaIuFMOhaccBYr/f/XeNTFXcISCcbVE/6cT3ZoQ2DNUr766Ysab+E+lYYW/98Wcyuhgxuc3MngDntrj31OAcnW+Wf00YxiHVlgFET4PcJZTt2x1QiujjejTxWuY2sQbsLtfuO0qTIlSAOuhcaKHJx4NvoZjVNyAXuXEVfDbpyACHZPQaGk=
 
 script:
   - npm run lint
@@ -23,5 +23,5 @@ script:
 
 after_script:
   - npm run cover
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-  - cat ./coverage/lcov.info | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js
+  - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
+  - cat coverage/lcov.info | node_modules/codeclimate-test-reporter/bin/codeclimate.js
