@@ -29,13 +29,4 @@ tmpdl('http://www.example.com/some-awesome-image.jpg')
   }) 
 ```
 
-`tmpdl` will return a promise. The promise will resolve once the remote file has been downloaded. Any errors that occur during the download of the file, or the creation of the temporary directory that the remote file will be stored in, will cause the promise to reject.
-
-```js
-const tmpdl = require('tmpdl')
-
-tmpdl('http://www.example.com/some-awesome-image.jpg')
-  .then(filepath => {
-    // ...
-  })
-```
+`tmpdl` will return a promise which will resolve to the path of the saved file. Any errors that occur during the download of the file, or the creation of the temporary directory that the remote file will be stored in, will cause the promise to reject.
