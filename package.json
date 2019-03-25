@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "download": "^6.0.0",
-    "tmp": "0.0.33"
+    "tmp": "0.1.0"
   },
   "devDependencies": {
     "codeclimate-test-reporter": "^0.5.1",
