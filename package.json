@@ -29,7 +29,7 @@
     "file"
   ],
   "engines": {
-    "node": ">=4"
+    "node": ">=8"
   },
   "dependencies": {
     "download": "^7.1.0",

@@ -19,8 +19,8 @@ ratings:
      - index.js
 
 exclude_paths:
+  - "^.*"
   - "*.md"
   - LICENSE
   - package.json
   - test.js
-  - yarn.lock

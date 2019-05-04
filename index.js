@@ -1,5 +1,3 @@
-'use strict'
-
 const download = require('download')
 const path = require('path')
 const tmp = require('tmp')
