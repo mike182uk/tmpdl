@@ -1,26 +1,9 @@
-engines:
-  eslint:
-    enabled: true
-    channel: eslint-3
-  duplication:
-    enabled: true
-    config:
-      languages:
-        - javascript
-  fixme:
-    enabled: true
-    config:
-      strings:
-        - TODO
-        - FIXME
+version: 2
 
-ratings:
-   paths:
-     - index.js
-
-exclude_paths:
-  - "^.*"
+exclude_patterns:
+  - "**/.*"
   - "*.md"
   - LICENSE
   - package.json
+  - package-lock.json
   - test.js
