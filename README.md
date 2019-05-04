@@ -2,9 +2,6 @@
 
 [![Version](https://img.shields.io/npm/v/tmpdl.svg?style=flat-square)](https://www.npmjs.com/package/tmpdl)
 [![Build Status](https://img.shields.io/travis/mike182uk/tmpdl.svg?style=flat-square)](http://travis-ci.org/mike182uk/tmpdl)
-[![Code Climate Maintainability](https://img.shields.io/codeclimate/maintainability/mike182uk/tmpdl.svg?style=flat-square)](https://codeclimate.com/github/mike182uk/tmpdl)
-[![Code Climate Tech Debt](	https://img.shields.io/codeclimate/tech-debt/mike182uk/tmpdl.svg?style=flat-square)](https://codeclimate.com/github/mike182uk/tmpdl)
-[![Code Climate Issues](https://img.shields.io/codeclimate/issues/mike182uk/tmpdl.svg?style=flat-square)](https://codeclimate.com/github/mike182uk/tmpdl)
 [![Coveralls](https://img.shields.io/coveralls/mike182uk/tmpdl/master.svg?style=flat-square)](https://coveralls.io/r/mike182uk/tmpdl)
 [![npm](https://img.shields.io/npm/dm/tmpdl.svg?style=flat-square)](https://www.npmjs.com/package/tmpdl)
 [![License](https://img.shields.io/github/license/mike182uk/tmpdl.svg?style=flat-square)](https://www.npmjs.com/package/tmpdl)

@@ -36,7 +36,6 @@
     "tmp": "0.0.31"
   },
   "devDependencies": {
-    "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.0.3",
     "istanbul": "^0.4.2",
     "proxyquire": "^2.1.0",

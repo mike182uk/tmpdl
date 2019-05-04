@@ -1,9 +1,0 @@
-version: 2
-
-exclude_patterns:
-  - "**/.*"
-  - "*.md"
-  - LICENSE
-  - package.json
-  - package-lock.json
-  - test.js
