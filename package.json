@@ -1,6 +1,6 @@
 {
   "name": "tmpdl",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Download a remote file to a temporary location",
   "main": "index.js",
   "scripts": {
