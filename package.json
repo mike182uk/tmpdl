@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "download": "^7.1.0",
-    "tmp": "0.0.31"
+    "tmp": "^0.1.0"
   },
   "devDependencies": {
     "coveralls": "^3.0.3",

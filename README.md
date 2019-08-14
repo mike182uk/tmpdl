@@ -19,13 +19,13 @@ npm install --save tmpdl
 ```js
 const tmpdl = require('tmpdl')
 
-tmpdl('http://www.example.com/some-awesome-image.jpg')
-  .then(filepath => {
-    // remote file successfully downloaded and stored
-  })
-  .catch(err => {
-    // something went wrong
-  }) 
+try {
+  const filepath = await tmpdl('http://www.example.com/some-awesome-image.jpg')
+
+  // remote file successfully downloaded and stored
+} catch (err) {
+  // something went wrong
+}
 ```
 
 `tmpdl` will return a promise which will resolve to the path of the saved file. Any errors that occur during the download of the file, or the creation of the temporary directory that the remote file will be stored in, will cause the promise to reject.

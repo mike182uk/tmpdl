@@ -1,7 +1,10 @@
+const { promisify } = require('util')
 const download = require('download')
 const path = require('path')
 const tmp = require('tmp')
 const url = require('url')
+
+const tmpNameAsync = promisify(tmp.tmpName)
 
 /**
  * Exports
@@ -13,26 +16,22 @@ module.exports = tmpdl
  * Download a remote file to a temporary location
  *
  * @param   {string} src
- * @returns {Promise}
+ * @returns {string}
  */
 
-function tmpdl (src) {
-  return new Promise((resolve, reject) => {
-    tmp.tmpName((err, tmpDir) => {
-      if (err) {
-        return reject(new Error(err))
-      }
+async function tmpdl (src) {
+  let tmpDir
 
-      download(src, tmpDir)
-        .then(() => {
-          let filename = url.parse(src).path
-          let filepath = path.join(tmpDir, path.parse(filename).base)
+  try {
+    tmpDir = await tmpNameAsync()
+  } catch (err) {
+    throw new Error(err)
+  }
 
-          resolve(filepath)
-        })
-        .catch(err => {
-          reject(new Error(err.message))
-        })
-    })
-  })
+  await download(src, tmpDir)
+
+  const filename = url.parse(src).path
+  const filepath = path.join(tmpDir, path.parse(filename).base)
+
+  return filepath
 }
