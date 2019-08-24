@@ -2,7 +2,6 @@ const { promisify } = require('util')
 const download = require('download')
 const path = require('path')
 const tmp = require('tmp')
-const url = require('url')
 
 const tmpNameAsync = promisify(tmp.tmpName)
 
@@ -30,7 +29,7 @@ async function tmpdl (src) {
 
   await download(src, tmpDir)
 
-  const filename = url.parse(src).path
+  const filename = (new URL(src)).pathname
   const filepath = path.join(tmpDir, path.parse(filename).base)
 
   return filepath
