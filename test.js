@@ -2,6 +2,8 @@ const proxyquire = require('proxyquire')
 const test = require('tape')
 
 test('it downloads a file to a temporary location and returns the path to the file', async t => {
+  t.plan(1)
+
   const url = 'http://foo.bar/baz.jpg'
   const tmpDir = 'foo/bar'
   const expectedFilePath = `${tmpDir}/baz.jpg`
@@ -16,17 +18,17 @@ test('it downloads a file to a temporary location and returns the path to the fi
   const filepath = await tmpdl(url)
 
   t.equal(filepath, expectedFilePath, 'file is downloaded to the correct location')
-
-  t.end()
 })
 
 test('it throws an error if it fails to create a temporary directory', async t => {
+  t.plan(1)
+
   const url = 'http://foo.bar/baz.jpg'
-  const errorMsg = 'foo'
+  const errMsg = 'foo'
 
   const tmpdl = proxyquire('./index.js', {
     tmp: {
-      tmpName: cb => cb(errorMsg)
+      tmpName: cb => cb(errMsg)
     }
   })
 
@@ -34,32 +36,30 @@ test('it throws an error if it fails to create a temporary directory', async t =
     await tmpdl(url)
 
     t.fail('expected tmpdl to throw')
-  } catch (err) {
-    t.equals(err.message, errorMsg, 'correct error is thrown')
+  } catch ({ message }) {
+    t.equals(message, errMsg, 'correct error is thrown')
   }
-
-  t.end()
 })
 
 test('it throws an error if it fails to download the file', async t => {
+  t.plan(1)
+
   const url = 'http://foo.bar/baz.jpg'
   const tmpDir = 'foo/bar'
-  const expectedError = new Error('foo')
+  const errMsg = 'foo'
 
   const tmpdl = proxyquire('./index.js', {
     tmp: {
       tmpName: (cb) => cb(null, tmpDir)
     },
-    download: () => Promise.reject(expectedError)
+    download: () => Promise.reject(new Error(errMsg))
   })
 
   try {
     await tmpdl(url)
 
     t.fail('expected tmpdl to throw')
-  } catch (err) {
-    t.equals(err.message, expectedError.message, 'correct error is thrown')
+  } catch ({ message }) {
+    t.equals(message, errMsg, 'correct error is thrown')
   }
-
-  t.end()
 })
