@@ -32,7 +32,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "download": "^7.1.0",
+    "download": "^8.0.0",
     "tmp": "^0.1.0"
   },
   "devDependencies": {
