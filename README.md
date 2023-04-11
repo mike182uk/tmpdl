@@ -1,8 +1,8 @@
 # tmpdl
 
 [![Version](https://img.shields.io/npm/v/tmpdl.svg?style=flat-square)](https://www.npmjs.com/package/tmpdl)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/mike182uk/tmpdl/ci.yml?branch=master&style=flat-square)](https://github.com/mike182uk/tmpdl/actions/workflows/ci.yml?query=workflow%3ACI)
-[![Coveralls](https://img.shields.io/coveralls/mike182uk/tmpdl/master.svg?style=flat-square)](https://coveralls.io/r/mike182uk/tmpdl)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/mike182uk/tmpdl/ci.yml?branch=main&style=flat-square)](https://github.com/mike182uk/tmpdl/actions/workflows/ci.yml?query=workflow%3ACI)
+[![Coveralls](https://img.shields.io/coveralls/mike182uk/tmpdl/main.svg?style=flat-square)](https://coveralls.io/r/mike182uk/tmpdl)
 [![npm](https://img.shields.io/npm/dm/tmpdl.svg?style=flat-square)](https://www.npmjs.com/package/tmpdl)
 [![License](https://img.shields.io/github/license/mike182uk/tmpdl.svg?style=flat-square)](https://www.npmjs.com/package/tmpdl)
 
